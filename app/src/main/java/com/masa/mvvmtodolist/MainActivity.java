@@ -35,16 +35,16 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(List<Todo> todos) {
                 if (todos.size() > 0)
                     Log.d("MAIN", "Inserted => " + String.valueOf(todos.get(todos.size() - 1).toString()));
-
             }
         });
 
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Log.d("Main","Click") ;
-                Todo todo = new Todo("customtitle", "hi", false);
+                Todo todo = new Todo("custom title", "hi", false);
                 viewModel.insert(todo);
+                todo.setTitle("update title");
+                viewModel.update(todo);
             }
         });
 
