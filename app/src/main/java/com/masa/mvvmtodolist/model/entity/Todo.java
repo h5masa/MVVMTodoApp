@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "todo_table")
 public class Todo {
+
     @PrimaryKey(autoGenerate = true)
     private Integer id;
     @ColumnInfo(name = "title")
@@ -44,5 +45,17 @@ public class Todo {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public void setDone(Boolean done) {
+        this.done = done;
     }
 }

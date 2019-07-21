@@ -22,11 +22,10 @@ public abstract class TodoRoomDatabase extends RoomDatabase {
             synchronized (TodoRoomDatabase.class) {
                 INSTANCE =
                         Room.databaseBuilder(context.getApplicationContext(), TodoRoomDatabase.class, "todo_database")
-                                // allow queries on the main thread.
-                                // Don't do this on a real app! See PersistenceBasicSample for an example.
-                                .allowMainThreadQueries()
+                                /** allow queries on the main thread. (As a default, Cannot access database on the main thread since it may potentially lock the UI for a long period of time.)
+                                 Don't do this on a real app! See PersistenceBasicSample for an example.*/
+                                //.allowMainThreadQueries()
                                 .build();
-
             }
         }
         return INSTANCE;

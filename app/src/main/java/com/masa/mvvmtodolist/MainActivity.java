@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         setContentView(binding.getRoot());
 
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Log.d("Main","Click") ;
-                viewModel.insert(new Todo("customtitle", "hi", false));
+                Todo todo = new Todo("customtitle", "hi", false);
+                viewModel.insert(todo);
             }
         });
 

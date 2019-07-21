@@ -41,5 +41,7 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
     //ViewModels
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
+
+    implementation 'com.android.support:support-annotations:22.2.0'
 }
 
