@@ -1,4 +1,4 @@
-package com.masa.mvvmtodolist;
+package com.masa.mvvmtodolist.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.masa.mvvmtodolist.R;
 import com.masa.mvvmtodolist.databinding.ActivityMainBinding;
 import com.masa.mvvmtodolist.model.entity.Todo;
+import com.masa.mvvmtodolist.view.adapter.TodoRecyclerAdapter;
 import com.masa.mvvmtodolist.viewmodel.TodoViewModel;
 
 import java.util.List;
@@ -30,23 +32,33 @@ public class MainActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(TodoViewModel.class);
 
 
+        final TodoRecyclerAdapter adapter = new TodoRecyclerAdapter(customClickListener);
+
+
         viewModel.getAlldata().observe(this, new Observer<List<Todo>>() {
             @Override
             public void onChanged(List<Todo> todos) {
-                if (todos.size() > 0)
+                if (todos.size() > 0) {
                     Log.d("MAIN", "Inserted => " + String.valueOf(todos.get(todos.size() - 1).toString()));
+
+                    adapter.setTodos(todos);
+                    binding.rvTodos.setAdapter(adapter);
+                }
             }
         });
 
-        binding.button.setOnClickListener(new View.OnClickListener() {
+        binding.fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Todo todo = new Todo("custom title", "hi", false);
+                Todo todo = new Todo(binding.editTodo.getText().toString(), "hi", false);
                 viewModel.insert(todo);
-                todo.setTitle("update title");
-                viewModel.update(todo);
             }
         });
 
     }
+
+    private CustomClickListener customClickListener = (todo) -> {
+        Log.d("Click Event", todo.getTitle() + " " + todo.getDetail());
+    };
+
 }
