@@ -18,6 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    /**To Active DataBinding Library*/
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -37,3 +42,4 @@ dependencies {
     //ViewModels
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
 }
+
