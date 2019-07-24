@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class Todo {
 
     @PrimaryKey(autoGenerate = true)
-    private Integer id;
+    private Long id;
     @ColumnInfo(name = "title")
     private String title;
     @ColumnInfo(name = "details")
@@ -27,7 +27,7 @@ public class Todo {
         return "[ id = " + id + ", title = " + title + "]";
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -43,7 +43,7 @@ public class Todo {
         return done;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

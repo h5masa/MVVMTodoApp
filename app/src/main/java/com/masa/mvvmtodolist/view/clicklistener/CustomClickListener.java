@@ -1,4 +1,4 @@
-package com.masa.mvvmtodolist.view;
+package com.masa.mvvmtodolist.view.clicklistener;
 
 import com.masa.mvvmtodolist.model.entity.Todo;
 

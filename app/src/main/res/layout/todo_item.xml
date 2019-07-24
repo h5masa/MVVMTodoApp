@@ -2,10 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
             name="callback"
-            type="com.masa.mvvmtodolist.view.CustomClickListener"></variable>
+            type="com.masa.mvvmtodolist.view.clicklistener.CustomClickListener"></variable>
+
+        <variable
+            name="checklistener"
+            type="com.masa.mvvmtodolist.view.checklistener.CustomCheckListener"></variable>
     </data>
 
     <LinearLayout

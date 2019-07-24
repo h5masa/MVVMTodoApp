@@ -41,9 +41,35 @@ public class TodoRepository {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                //code to do the Insert request
+                //code to do the Update request
                 todoDao.update(todo);
                 Log.d("Update Action", "Running on the thread: " + Thread.currentThread().getName().toString());
+            }
+        });
+        thread.start();
+    }
+
+
+    @WorkerThread
+    public void selectall(boolean ischecked) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //code to do the Update request
+                todoDao.selectAll(ischecked);
+                Log.d("Update All Action", "Running on the thread: " + Thread.currentThread().getName().toString());
+            }
+        });
+        thread.start();
+    }
+
+    public void delete(final Todo todo) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //code to do the Insert request
+                todoDao.delete(todo);
+                //Log.d("Update Action", "Running on the thread: " + Thread.currentThread().getName().toString());
             }
         });
         thread.start();

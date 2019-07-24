@@ -6,7 +6,8 @@ import android.view.ViewGroup;
 import com.masa.mvvmtodolist.R;
 import com.masa.mvvmtodolist.databinding.TodoItemBinding;
 import com.masa.mvvmtodolist.model.entity.Todo;
-import com.masa.mvvmtodolist.view.CustomClickListener;
+import com.masa.mvvmtodolist.view.checklistener.CustomCheckListener;
+import com.masa.mvvmtodolist.view.clicklistener.CustomClickListener;
 
 import java.util.List;
 
@@ -18,10 +19,11 @@ public class TodoRecyclerAdapter extends RecyclerView.Adapter<TodoRecyclerAdapte
     private LayoutInflater inflater;
     private List<Todo> todos = null;
     private CustomClickListener customClickListener;
+    private CustomCheckListener customCheckListener;
 
-
-    public TodoRecyclerAdapter(CustomClickListener customClickListener) {
+    public TodoRecyclerAdapter(CustomClickListener customClickListener, CustomCheckListener customCheckListener) {
         this.customClickListener = customClickListener;
+        this.customCheckListener = customCheckListener;
     }
 
     public void setTodos(List<Todo> todos) {
@@ -35,12 +37,17 @@ public class TodoRecyclerAdapter extends RecyclerView.Adapter<TodoRecyclerAdapte
         inflater = LayoutInflater.from(parent.getContext());
         TodoItemBinding binding = DataBindingUtil.inflate(inflater, R.layout.todo_item, parent, false);
         binding.setCallback(this.customClickListener); // set the click event listener through data binding
+        binding.setChecklistener(this.customCheckListener);
         return new TodoViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TodoViewHolder holder, int position) {
         holder.binding.tvTodo.setText(todos.get(position).getTitle());
+        holder.binding.cbDone.setChecked(todos.get(position).getDone());
+        holder.binding.cbDone.setOnClickListener( (v) -> {
+            holder.binding.getChecklistener().onChecked(todos.get(position), holder.binding.cbDone.isChecked());
+        });
         holder.binding.tvTodo.setOnClickListener((v) -> {
             holder.binding.getCallback().onClick(todos.get(position));
         });
