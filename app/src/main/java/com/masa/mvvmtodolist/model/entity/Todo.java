@@ -4,6 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import org.parceler.Parcel;
+import org.parceler.ParcelConstructor;
+
+
+@Parcel
 @Entity(tableName = "todo_table")
 public class Todo {
 
@@ -16,6 +21,7 @@ public class Todo {
     @ColumnInfo(name = "done")
     private Boolean done;
 
+    @ParcelConstructor
     public Todo(String title, String detail, Boolean done) {
         this.title = title;
         this.detail = detail;

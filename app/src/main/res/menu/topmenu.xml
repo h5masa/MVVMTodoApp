@@ -7,4 +7,10 @@
         android:title="select all"
         app:showAsAction="ifRoom"
         />
+
+    <item
+        android:id="@+id/bubblehead"
+        android:title="Bubble Head"
+        app:showAsAction="never"
+        />
 </menu>
