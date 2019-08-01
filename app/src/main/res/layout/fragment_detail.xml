@@ -29,6 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint = "@string/title_default_hint"
+            android:autofillHints="@string/title_default_hint"
+            android:inputType="text"
             android:imeOptions="flagNoExtractUi"
             android:maxLines="1"
             android:text="@={displayfragment.todoObservableField.title}"
@@ -42,6 +44,8 @@
             android:layout_height="350dp"
             android:gravity="top"
             android:hint= "@string/subscription_default_hint"
+            android:autofillHints="@string/subscription_default_hint"
+            android:inputType="text"
             android:imeOptions="flagNoExtractUi"
             android:text="@={displayfragment.todoObservableField.detail}"/>
     </LinearLayout>
@@ -50,7 +54,8 @@
         android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_add_black_24dp"
+        android:src="@drawable/ic_save_black_24dp"
+        app:backgroundTint="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
