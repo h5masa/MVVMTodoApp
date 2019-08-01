@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.masa.mvvmtodolist.DetailFragment"
+        android:name="com.masa.mvvmtodolist.view.fragment.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
 

@@ -2,5 +2,7 @@
     <string name="app_name">MVVMTodoList</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_default_hint">Enter Your Title Here...</string>
+    <string name="subscription_default_hint">Enter Your Subscription Here...</string>
+
 </resources>

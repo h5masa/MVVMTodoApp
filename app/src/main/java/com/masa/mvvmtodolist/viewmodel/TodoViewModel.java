@@ -33,7 +33,11 @@ public class TodoViewModel extends AndroidViewModel {
     }
 
     public void insert(final Todo todo) {
-        this.todoRepository.insert(todo);
+        if(todo.getTitle().isEmpty()){
+            Toast.makeText(getApplication(), "No Item to be added", Toast.LENGTH_SHORT).show();
+        }else {
+            this.todoRepository.insert(todo);
+        }
     }
 
 

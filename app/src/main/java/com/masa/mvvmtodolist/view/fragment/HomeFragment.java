@@ -63,8 +63,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 viewModel.selectall(true);
                 break;
 
-
-
             default:
                 break;
         }
@@ -81,7 +79,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     Log.d("Click Event", todo.getId() + " " + todo.getTitle() + " " + todo.getDetail());
                     Bundle bundle = new Bundle();
                     bundle.putParcelable("MyTodo", Parcels.wrap(todo));
-                    Navigation.findNavController(view).navigate(R.id.showDetail, bundle);
+                    Navigation.findNavController(binding.getRoot()).navigate(R.id.showDetail, bundle);
                     },
                 (todo, checked) -> {
                     Log.d("Check Event", todo.getTitle() + " " + checked);
@@ -110,7 +108,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.equals(binding.fabAdd)) {
-            Todo todo = new Todo(binding.editTodo.getText().toString(), "hi", false);
+            Todo todo = new Todo(binding.editTodo.getText().toString(), "", false);
             viewModel.insert(todo);
             binding.editTodo.setText("");
         } else if (v.equals(binding.fabremove)) {
