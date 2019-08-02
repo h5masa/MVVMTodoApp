@@ -13,6 +13,7 @@ import androidx.room.RoomDatabase;
 @Database(entities = {Todo.class}, version = 1)
 public abstract class TodoRoomDatabase extends RoomDatabase {
     public abstract TodoDao todoDao();
+
     private static TodoRoomDatabase INSTANCE = null;
 
     public static TodoRoomDatabase getDatabase(Context context) {

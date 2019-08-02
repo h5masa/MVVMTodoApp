@@ -8,17 +8,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.MainActivity">
+        tools:context=".view.activity.MainActivity">
 
         <fragment
             android:id="@+id/mainfragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/customnav"
-            >
-        </fragment>
+            app:navGraph="@navigation/customnav"></fragment>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

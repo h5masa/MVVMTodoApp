@@ -4,11 +4,11 @@
     <data>
         <variable
             name="callback"
-            type="com.masa.mvvmtodolist.view.clicklistener.CustomClickListener"></variable>
+            type="com.masa.mvvmtodolist.view.listeners.clicklistener.CustomClickListener"></variable>
 
         <variable
             name="checklistener"
-            type="com.masa.mvvmtodolist.view.checklistener.CustomCheckListener"></variable>
+            type="com.masa.mvvmtodolist.view.listeners.checklistener.CustomCheckListener"></variable>
     </data>
 
     <LinearLayout

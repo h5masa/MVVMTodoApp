@@ -1,4 +1,4 @@
-package com.masa.mvvmtodolist.view;
+package com.masa.mvvmtodolist.view.activity;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.bubblehead:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     createGoogleBubble();
+                }else{
+                    createCustomBubble();
                 }
                 break;
-
-
 
             default:
                 break;
@@ -62,14 +62,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    void createCustomBubble(){
+
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    void createGoogleBubble(){
+    void createGoogleBubble() {
 
         createNotificationChannel();
 
         Intent target = new Intent(this, MainActivity.class);
         PendingIntent bubbleIntent =
-                PendingIntent.getActivity(this, 0, target, 0 );
+                PendingIntent.getActivity(this, 0, target, 0);
 
         Notification.BubbleMetadata bubbleData =
                 new Notification.BubbleMetadata.Builder()

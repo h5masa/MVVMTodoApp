@@ -25,26 +25,18 @@ public class TodoRepository {
 
     @WorkerThread
     public void insert(final Todo todo) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //code to do the Insert request
-                todoDao.insert(todo);
-                Log.d("Insert Action", "Running on the thread: " + Thread.currentThread().getName().toString());
-            }
+        Thread thread = new Thread(() -> {
+            //Insert request on the worker thread
+            todoDao.insert(todo);
         });
         thread.start();
     }
 
     @WorkerThread
     public void update(final Todo todo) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //code to do the Update request
-                todoDao.update(todo);
-                Log.d("Update Action", "Running on the thread: " + Thread.currentThread().getName().toString());
-            }
+        Thread thread = new Thread(() -> {
+            //code to do the Update request
+            todoDao.update(todo);
         });
         thread.start();
     }
@@ -63,14 +55,11 @@ public class TodoRepository {
         thread.start();
     }
 
+    @WorkerThread
     public void delete(final Todo todo) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //code to do the Insert request
-                todoDao.delete(todo);
-                //Log.d("Update Action", "Running on the thread: " + Thread.currentThread().getName().toString());
-            }
+        Thread thread = new Thread(() -> {
+            //code to do the Insert request
+            todoDao.delete(todo);
         });
         thread.start();
     }

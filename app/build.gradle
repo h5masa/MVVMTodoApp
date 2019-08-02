@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 
-
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -44,24 +43,21 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
     // For kotlin use kapt instead
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
-    //ViewModels
+    // ViewModels
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
-
     implementation 'androidx.annotation:annotation:1.0.0'
 
-    //Google Material
+    // Google Material
     implementation 'com.google.android.material:material:1.+'
 
-
-    def nav_version = "2.1.0-alpha05"
-
     // Java
+    def nav_version = "2.1.0-alpha05"
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
 
+    def parceler_version = "1.+"
     //************ Parceler Dependency Added *******************
-    //URL: https://github.com/johncarl81/parceler
-    implementation 'org.parceler:parceler-api:1.+'
-    annotationProcessor 'org.parceler:parceler:1.1.12'
+    implementation "org.parceler:parceler-api:$parceler_version"
+    annotationProcessor "org.parceler:parceler:$parceler_version"
 }

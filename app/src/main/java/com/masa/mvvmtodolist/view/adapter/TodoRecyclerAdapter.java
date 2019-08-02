@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import com.masa.mvvmtodolist.R;
 import com.masa.mvvmtodolist.databinding.TodoItemBinding;
 import com.masa.mvvmtodolist.model.entity.Todo;
-import com.masa.mvvmtodolist.view.checklistener.CustomCheckListener;
-import com.masa.mvvmtodolist.view.clicklistener.CustomClickListener;
+import com.masa.mvvmtodolist.view.listeners.checklistener.CustomCheckListener;
+import com.masa.mvvmtodolist.view.listeners.clicklistener.CustomClickListener;
 
 import java.util.List;
 
